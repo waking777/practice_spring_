@@ -1,6 +1,7 @@
 package com.itheima.service.impl;
 
 import com.itheima.dao.IAccountDao;
+import com.itheima.dao.IAccountDao2;
 import com.itheima.domain.Account;
 import com.itheima.service.IAccountService2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,26 +16,26 @@ import java.util.List;
 public class AccountServiceImpl2 implements IAccountService2 {
 
     @Autowired
-    private IAccountDao accountDao;
+    private IAccountDao2 accountDao2;
 
 
     public List<Account> findAllAccount() {
-        return accountDao.findAllAccount();
+        return accountDao2.findAllAccount();
     }
 
     public Account findAccountById(Integer accountId) {
-        return accountDao.findAccountById(accountId);
+        return accountDao2.findAccountById(accountId);
     }
 
     public void saveAccount(Account account) {
-        accountDao.saveAccount(account);
+        accountDao2.saveAccount(account);
     }
 
     public void updateAccount(Account account) {
-        accountDao.updateAccount(account);
+        accountDao2.updateAccount(account);
     }
 
     public void deleteAccount(Integer accountId) {
-        accountDao.deleteAccount(accountId);
+        accountDao2.deleteAccount(accountId);
     }
 }
