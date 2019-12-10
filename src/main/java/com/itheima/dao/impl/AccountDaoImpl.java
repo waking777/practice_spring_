@@ -36,9 +36,9 @@ public class AccountDaoImpl implements IAccountDao {
         }
     }
 
-    public void saveAcccount(Account account) {
+    public void saveAccount(Account account) {
         try {
-            runner.update("insert into account(name,money)", new BeanHandler<Account>(Account.class));
+            runner.update("insert into account(name,money) value(?,?)", account.getName(), account.getMoney());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -46,8 +46,8 @@ public class AccountDaoImpl implements IAccountDao {
 
     public void updateAccount(Account account) {
         try {
-            runner.update("update account name=?,money=? where id = ?", new BeanHandler<Account>(Account.class),
-                    account.getName(),account.getMoney(),account.getId());
+            runner.update("update account set name=?,money=? where id = ?", account.getName(), account.getMoney(),
+                    account.getId());
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -55,7 +55,7 @@ public class AccountDaoImpl implements IAccountDao {
 
     public void deleteAccount(Integer accountId) {
         try {
-            runner.update("delete from account where id = ?", new BeanHandler<Account>(Account.class),accountId);
+            runner.update("delete from account where id = ?", accountId);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }

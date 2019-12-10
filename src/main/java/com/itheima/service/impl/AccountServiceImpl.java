@@ -25,8 +25,8 @@ public class AccountServiceImpl implements IAccountService {
         return accountDao.findAccountById(accountId);
     }
 
-    public void saveAcccount(Account account) {
-        accountDao.saveAcccount(account);
+    public void saveAccount(Account account) {
+        accountDao.saveAccount(account);
     }
 
     public void updateAccount(Account account) {

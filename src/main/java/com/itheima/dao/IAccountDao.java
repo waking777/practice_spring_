@@ -22,7 +22,7 @@ public interface IAccountDao {
     /**
      * 保存账户
      */
-    void saveAcccount(Account account);
+    void saveAccount(Account account);
 
     /**
      * 更新用户

@@ -12,7 +12,7 @@
         <property name="runner" ref="runner"></property>
     </bean>
 
-    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner">
+    <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
         <constructor-arg name="ds" ref="dataSource"> </constructor-arg>
     </bean>
 
