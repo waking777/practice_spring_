@@ -33,4 +33,9 @@ public interface IAccountDao {
      * 删除账户
      */
     void deleteAccount(Integer id);
+
+    /**
+     * 根据名称查询信息
+     */
+    Account findAccountByName(String accountName);
 }

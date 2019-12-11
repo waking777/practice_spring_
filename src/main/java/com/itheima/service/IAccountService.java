@@ -34,4 +34,9 @@ public interface IAccountService {
      * 删除账户
      */
     void deleteAccount(Integer accountId);
+
+    /**
+     *转账--从A转到B
+     */
+    void transfer(String sourceName,String targetName,Float money);
 }
