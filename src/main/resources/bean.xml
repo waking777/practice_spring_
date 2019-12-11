@@ -13,14 +13,15 @@
     <!--=========================== xml配置方法=======================-->
     <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl">
         <property name="accountDao" ref="accountDao"></property>
+        <property name="txManager" ref="txManager"></property>
     </bean>
 
     <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl">
         <property name="runner" ref="runner"></property>
+        <property name="connectionUtils" ref="connectionUtils"></property>
     </bean>
 
     <bean id="runner" class="org.apache.commons.dbutils.QueryRunner" scope="prototype">
-        <constructor-arg name="ds" ref="dataSource"></constructor-arg>
     </bean>
 
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
@@ -28,6 +29,16 @@
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/practice_xml_ioc"></property>
         <property name="user" value="root"></property>
         <property name="password" value="root"></property>
+    </bean>
+
+    <!--配置connection的utils -->
+    <bean id="connectionUtils" class="com.itheima.Utils.ConnectionUtils">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+
+    <!--事务管理器-->
+    <bean id="txManager" class="com.itheima.Utils.TransactionManager">
+        <property name="connectionUtils" ref="connectionUtils"></property>
     </bean>
 
 </beans>
