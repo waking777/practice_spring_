@@ -15,7 +15,7 @@ import java.util.List;
 
 /**
  * 使用单元测试junit
- * @注解runwith是替换原来的main方法
+ * @runwith 是替换原来的main方法
  * @ContextConfiguration 配置 locations 等于bean.xml文档  ----xml配置方法
  */
 @RunWith(SpringJUnit4ClassRunner.class)

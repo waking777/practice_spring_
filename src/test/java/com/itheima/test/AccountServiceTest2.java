@@ -32,7 +32,7 @@ import java.util.List;
 public class AccountServiceTest2 {
 
     @Autowired
-    private IAccountService2 as = null;
+    private IAccountService2 as;
 
     @Test
     public void testFindAll() {
