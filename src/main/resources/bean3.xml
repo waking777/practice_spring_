@@ -49,13 +49,18 @@
     <!--配置Logger类 -->
     <bean id="logger" class="com.itheima.Utils.Logger"></bean>
 
-    <!--配置aop -->
-    <!--配置AOP-->
+    <!--配置AOP
+        <aop:before></aop:before> 前置通知
+        <aop:after-returning></aop:after-returning> 后置通知
+        <aop:after-throwing></aop:after-throwing>异常通知
+        <aop:after></aop:after>最终通知
+    -->
     <aop:config>
+        <aop:pointcut id="pt1" expression="execution(* com.itheima.service.impl.*.*(..))"></aop:pointcut>
         <!--配置切面 -->
         <aop:aspect id="logAdvice" ref="logger">
             <!-- 配置通知的类型，并且建立通知方法和切入点方法的关联-->
-            <aop:before method="printLog" pointcut="execution(* com.itheima.service.impl.*.*(..))"></aop:before>
+            <aop:before method="printLog" pointcut-ref="pt1"></aop:before>
         </aop:aspect>
     </aop:config>
 </beans>
