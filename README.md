@@ -1,3 +1,5 @@
 # practice_xml_ioc
 无后缀的为xml配置
 后缀为2的为注解
+后缀为3的为aop的xml
+后缀为4的为aop的注解
